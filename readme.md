@@ -17,4 +17,4 @@
 
 #### 其他
 + 客户端存储技术
-+ bootstrap实战# reading-note
++ bootstrap实战

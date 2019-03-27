@@ -71,8 +71,8 @@
 
   ```css
   div{
-   border:10px solid hsla(0,0%, 100%, 0.5);
-   }
+  	border:10px solid hsla(0,0%, 100%, 0.5);
+  }
   ```
 
 + hsla()
@@ -126,7 +126,7 @@ es6-shim.js/es6-shim-min.js
 
 实例3：
 
-```
+```JavaScript
 require('es6-promise').polyfill();
 //require(‘es6-promise/auto’);
 ```
@@ -202,8 +202,8 @@ https://blog.csdn.net/sxLDWX/article/details/78963086
 
 ```css
 div{
-background: rgba(0,0,0,0.75);
-background: #000\9;
+	background: rgba(0,0,0,0.75);
+	background: #000\9;
 }
 ```
 
@@ -220,8 +220,8 @@ background: #000\9;
 
 ```css
 div{
-background: #000;
-background: rgba(0,0,0,0.75);
+	background: #000;
+	background: rgba(0,0,0,0.75);
 }
 ```
 
@@ -230,9 +230,9 @@ background: rgba(0,0,0,0.75);
 总结：（1）通过样式的层叠提供完善的回退样式——浏览器前缀
      （2）CSS向前兼容机制：先写回退样式，再写理想样式
 
-转自：http://www.10tiao.com/html/482/201604/2651552670/1.html
-
-     https://www.jianshu.com/p/d313f1108862
+转自：
+http://www.10tiao.com/html/482/201604/2651552670/1.html
+https://www.jianshu.com/p/d313f1108862
 
 #### IE滤镜
 

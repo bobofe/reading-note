@@ -1,5 +1,9 @@
 # 本周书目——CSS揭秘
 
+[TOC]
+
+
+
 ## 第一章
 
 ## 第二章 背景与边框
@@ -103,8 +107,6 @@ polyfill指的是符合shim标准的API。polyfill API使用老方法来实现�
 
 另一个是 [es5-shim](https://github.com/es-shims/es5-shim)，它在 ES3 引擎的基础上对 ES5 的很多特性进行了改进，因为纯粹是语言相关的，所以很多在 nodejs 上才能使用的特性在浏览器端同样能够运行。
 
-**实例：**
-
 实例1：
 
 ```
@@ -192,7 +194,7 @@ https://blog.csdn.net/sxLDWX/article/details/78963086
 }
 ```
 
-
+回退写法：
 
 举个例子，设计师要求某个元素的背景色显示为半透明的黑色（如上图所示）。但我们都知道，低版本 IE 等浏览器并不支持 RGBA 颜色，因此对于这些浏览器，我们需要将它的背景色设置为最接近设计意图的纯黑色。那么在这里，半透明黑色是我们期望的 “理想样式”，而纯黑色则是用来兜底的 “回退样式”。
 
@@ -229,8 +231,6 @@ background: rgba(0,0,0,0.75);
 
 ​           （2）CSS向前兼容机制：先写回退样式，再写理想样式
 
-
-
 转自：http://www.10tiao.com/html/482/201604/2651552670/1.html
 
 ​	   https://www.jianshu.com/p/d313f1108862
@@ -247,11 +247,12 @@ background: rgba(0,0,0,0.75);
 + 加载shim脚本
 + 在IE下用滤镜来hacknannan
 
-难题：给容器设置一个白色背景和一个半透明的边框，父元素的背景色会从半透明的边框透过
+题目：给容器设置一个白色背景和一个半透明的边框，父元素的背景色会从半透明的边框透过
 
 效果图：
+![img](images/半透明边框效果图.png)
 
-![image-20190327111215346](../../../../Users/lsb/Library/Application Support/typora-user-images/image-20190327111215346.png)
+问题：透明边框不显示
 
 关键点：背景和边框的关系
 
@@ -261,15 +262,13 @@ background: rgba(0,0,0,0.75);
 
 `background-clip`  设置元素的背景（背景图片或颜色）是否延伸到边框下面。取值：
 
-+ ```css
+```css
 div{
-  background-clip: border-box;
-  background-clip: padding-box;
-  background-clip: content-box;
-  }
-  ```
-
-nan2.
+	background-clip: border-box;
+	background-clip: padding-box;
+	background-clip: content-box;
+}
+```
 
 ### 2.多重边框
 

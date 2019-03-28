@@ -14,16 +14,161 @@
 
 ![img](images/box-model.png) 
 
+#### outline属性(描边)和outline-offset属性
+
++ outline-width
++ outline-style
++ outline-color
+
+outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
+
++ **值可以为正，也可以为负**。值为负时，可用来实现缝边效果
+
+![img](images/缝边效果.png)
+
+缺点：**outline属性实现的“边框”不会贴合元素的圆角**
+
+
+
 #### 背景属性
 
 + background-color
-+ background-image
-+ background-repeat
-+ background-attachment
-+ background-position
-+ background-origin
-+ background-clip
-+ background-size
+
++ background-image:url('')
+
++ Background-repeat:no-repeat repeat repeat-x repeat-y
+
++ Background-attachment:scroll fixed
+
++ background-position:% length left/center/right|% length top center bottom
+
++ background-origin(**背景图片**的原点位置):border-box padding-box content-box 
+
++ background-clip(**背景图片**或**背景颜色**的裁剪):border-box padding-box content-box 
+
+  背景图片或背景色的起点默认是border-box，根据属性值对图片进行裁剪
+
+  + border-box：背景延伸至边框外沿（但是在边框下层）。
+  + padding-box：背景延伸至内边距（[`padding`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding)）外沿。不会绘制到边框处。
+  + content-box：背景被裁剪至内容区（content box）外沿。
+
+  ![img](images/border-box.png)
+
+  ![img](images/padding-box.png)
+
+  ![img](images/content-box.png)
+
++ background-size(**背景图片**的尺寸):contain cover % length auto
+
+  设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。
+
+  单张图片的背景大小可以使用以下三种方法中的一种来规定：
+
+  - 使用关键词 `contain`：保存原有比例
+  - 使用关键词 `cover`：保持原有比例
+  - 设定宽度和高度值
+    + 当通过宽度和高度值来设定尺寸时，你可以提供一或者两个数值:
+      + 如果仅有一个数值被给定，这个数值将作为宽度值大小，高度值将被设定为`auto。`
+      + 如果有两个数值被给定，第一个将作为宽度值大小，第二个作为高度值大小。
+      + 每个值可以是`<length>`,  `<percentage>`, 或者 `auto`.
+    + 设置多个背景用，分隔
+
+  ![img](images/background-size.png)
+
+
+
+#### 阴影效果box-shadow属性
+
+box-shadow:x偏移量 | y偏移量 | 模糊半径(**模糊程度**) | 阴影扩散半径(**向四个方向扩散**) | 阴影颜色|inset(内扩散)
+
+阴影的长宽默认和本元素相同，扩散半径是将阴影向四个方向扩散，放大阴影
+
+虽然颜色是可选择的，但如果不设置颜色，safari/chrome和firefox表现不同，在webkit内核的浏览器下阴影表现为透明色(无效果)而mozilla和oprea下表现为黑色。所以在使用box-shadow时必须加上阴影颜色。
+
+**x,y坐标为正，是向右和下扩散，x,y坐标为负，是向左向上扩散**。模糊值为0，没有模糊效果类似于边框效果，模糊半径值越大，越模糊；阴影扩散长度就是代表阴影的宽度，值越大阴影越多。
+
+**用逗号分隔的列表来描述一个或多个阴影效果（通过设置的偏移量来确定是哪个边框的阴影）**。**如果元素同时设置了 `border-radius`，**阴影也会有圆角效果**。多层阴影重叠需要注意，**排在前面的阴影的宽度不能大于排在后面的阴影，否则后面的阴影无法遮挡，就不能做出四周不同阴影的效果
+
+层级顺序：边框>内阴影>背景图片>背景颜色>外阴影
+
+```css
+/* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 |inset（内扩散）*/
+div{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+```
+
+例1：
+
+![image-20190328093605140](../../../../Users/lsb/Library/Application Support/typora-user-images/image-20190328093605140.png)
+
+
+
+例2：结合:before,:after元素制造阴影效果
+
+![img](images/box-shadow.png)
+
+这个立体的效果，可以通过给before,after元素添加阴影并结合旋转等特性得到
+
+
+
+```css
+   .box2 {
+        width: 300px;
+        height: 100px;
+        background: #ccc;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    .shadow {
+        position: relative;
+        max-width: 270px;
+        box-shadow: 0px 1px 4px rgba(0,0,0,0.3),/*下边框阴影*/
+                    0px 0px 20px rgba(0,0,0,0.1) inset;/*四个方向的内阴影*/
+    }
+    .shadow::before, .shadow::after{
+       content:"";
+       position:absolute;
+       z-index:-1;
+       bottom:15px;
+       left:10px;
+       width:50%;
+       height:20%;
+       box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+       transform:rotate(-3deg);
+    }
+
+    .shadow::after{
+       right:10px;
+       left:auto;
+       transform:rotate(3deg);
+     }
+```
+
+html：
+
+```html
+<div class="main">
+    <div class="box2 shadow"></div>
+</div>
+```
+
+兼容性：IE6-8不支持，使用IE的shadow阴影滤镜
+
+```css
+div{
+	-moz-box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
+	-webkit-box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
+	box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
+}
+```
+
+参考：
+
+https://www.jianshu.com/p/18bdcd17b4f2
+
+https://www.w3cplus.com/content/css3-box-shadow
 
 #### 颜色的表示方法
 
@@ -71,8 +216,8 @@
 
   ```css
   div{
-   border:10px solid hsla(0,0%, 100%, 0.5);
-   }
+  	border:10px solid hsla(0,0%, 100%, 0.5);
+  }
   ```
 
 + hsla()
@@ -202,8 +347,8 @@ https://blog.csdn.net/sxLDWX/article/details/78963086
 
 ```css
 div{
-background: rgba(0,0,0,0.75);
-background: #000\9;
+	background: rgba(0,0,0,0.75);
+	background: #000\9;
 }
 ```
 
@@ -220,8 +365,8 @@ background: #000\9;
 
 ```css
 div{
-background: #000;
-background: rgba(0,0,0,0.75);
+	background: #000;
+	background: rgba(0,0,0,0.75);
 }
 ```
 
@@ -258,7 +403,7 @@ background: rgba(0,0,0,0.75);
 
 > 默认情况下，背景色会颜色到边框所在的区域
 
-解决：**background-clip属性**
+解决：**background-clip:padding-box;**
 
 `background-clip`  设置元素的背景（背景图片或颜色）是否延伸到边框下面。取值：
 
@@ -271,6 +416,50 @@ div{
 ```
 
 ### 2.多重边框
+
+方案一：box-shadow方案
+
+优点：可以创建任意数量的投影
+
+方案二：outline方案（两层边框）——常规边框+ouline
+
+缺点：
+
++ 只适用于双层“边框”
++ outline属性实现的“边框”不会贴合元素的圆角
++ 需要在不同的浏览器下测试最终效果
+
+### 3.灵活的背景定位
+
+方案一：background-position
+
+方案二：background-origin
+
+方案三：calc()
+
+### 4.边框内圆角
+
+box-shadow+outline
+
+tip：描边不会跟着元素的圆角走（显示出直角），但box-shadow会跟随圆角走，用box-shadow调补描边和容器圆角之间的空隙来实现内圆角
+
+box-shadow的扩张值：小于描边的宽度，约等于圆角半径的一半
+
+![img](images/内圆角.png)
+
+```css
+.test{
+     width: 150px;
+     height: 150px;
+     margin: 50px;
+     background: red;
+     box-shadow: 0 0 0 5px;
+     border-radius: 10px;
+     outline:10px solid black;
+}
+```
+
+
 
 
 

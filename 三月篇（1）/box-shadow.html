@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-shadow</title>
+    <link rel="stylesheet" href="test.css">
+    <style type="text/css">
+        .box2 {
+            width: 300px;
+            height: 100px;
+            background: #ccc;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .shadow {
+            position: relative;
+            max-width: 270px;
+            box-shadow: 0px 1px 4px rgba(0,0,0,0.3),
+                        0px 0px 20px rgba(0,0,0,0.1) inset;
+        }
+        .shadow::before,
+        .shadow::after{
+            content:"";
+            position:absolute;
+            z-index:-1;
+            bottom:15px;
+            left:10px;
+            width:50%;
+            height:20%;
+            box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+            transform:rotate(-3deg);
+        }
+
+        .shadow::after{
+            right:10px;
+            left:auto;
+            transform:rotate(3deg);
+        }
+
+        .test{
+            width: 150px;
+            height: 150px;
+            margin: 50px;
+            background: red;
+            box-shadow: 0 0 0 5px;
+            border-radius: 10px;
+            outline:10px solid black;
+        }
+    </style>
+</head>
+<body>
+<h2> 伪元素::before和::after</h2>
+<div class="main">
+    <div class="box2 shadow"></div>
+</div>
+
+<div class="test"></div>
+</body>
+</html>

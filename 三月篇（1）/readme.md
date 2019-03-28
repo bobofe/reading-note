@@ -271,7 +271,7 @@ es6-shim.js/es6-shim-min.js
 
 实例3：
 
-```
+```JavaScript
 require('es6-promise').polyfill();
 //require(‘es6-promise/auto’);
 ```
@@ -373,12 +373,11 @@ div{
 这种写法更像是具备了 “特性检测” 的功效：不支持 RGBA 的浏览器不识别第二条声明，因此只有第一条会生效；而对于支持 RGBA 的浏览器来说，它们可以同时识别这两条声明，但由于第二条声明的权重更高，这些浏览器最终将显示出半透明的效果。
 
 总结：（1）通过样式的层叠提供完善的回退样式——浏览器前缀
+     （2）CSS向前兼容机制：先写回退样式，再写理想样式
 
-​           （2）CSS向前兼容机制：先写回退样式，再写理想样式
-
-转自：http://www.10tiao.com/html/482/201604/2651552670/1.html
-
-​	   https://www.jianshu.com/p/d313f1108862
+转自：
+http://www.10tiao.com/html/482/201604/2651552670/1.html
+https://www.jianshu.com/p/d313f1108862
 
 #### IE滤镜
 

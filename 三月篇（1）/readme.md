@@ -1,8 +1,8 @@
-# 本周书目——CSS揭秘
-
 [TOC]
 
 
+
+# 本周书目——CSS揭秘
 
 ## 第一章
 
@@ -10,11 +10,11 @@
 
 ### 知识仓库
 
-#### 盒子模型
+#### 1.盒子模型
 
 ![img](images/box-model.png) 
 
-#### outline属性(描边)和outline-offset属性
+#### 2.outline属性(描边)和outline-offset属性
 
 + outline-width
 + outline-style
@@ -28,9 +28,7 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
 
 缺点：**outline属性实现的“边框”不会贴合元素的圆角**
 
-
-
-#### 背景属性
+#### 3.背景属性
 
 + background-color
 
@@ -77,7 +75,7 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
 
 
 
-#### 阴影效果box-shadow属性
+#### 4.阴影效果box-shadow属性
 
 box-shadow:x偏移量 | y偏移量 | 模糊半径(**模糊程度**) | 阴影扩散半径(**向四个方向扩散**) | 阴影颜色|inset(内扩散)
 
@@ -170,7 +168,7 @@ https://www.jianshu.com/p/18bdcd17b4f2
 
 https://www.w3cplus.com/content/css3-box-shadow
 
-#### 颜色的表示方法
+#### 5.颜色的表示方法
 
 前景色：内容区+边框
 背景色：背景部分
@@ -222,7 +220,7 @@ https://www.w3cplus.com/content/css3-box-shadow
 
 + hsla()
 
-#### shim和polyfill
+#### 6.shim和polyfill
 
 在 javascript 的世界里，我们经常会遇到`shim`和`polyfill`两个术语，那么它们之间到底有什么区别呢？
 
@@ -312,7 +310,7 @@ https://github.com/chenxiaochun/blog/issues/37
 
 https://blog.csdn.net/sxLDWX/article/details/78963086
 
-#### 回退机制
+#### 7.回退机制
 
 在浏览器特性参差不齐的大环境下，“渐近增强” 与 “平稳退化” 是一种务实的策略。因此，在编写华丽样式的同时，我们还需要想好退路，为功能较弱的浏览器提供回退样式（fallback）。总的来说，我们应该利用 CSS 自身的机制来组织回退样式，而不是依赖 CSS hack 来实现。
 
@@ -373,17 +371,19 @@ div{
 这种写法更像是具备了 “特性检测” 的功效：不支持 RGBA 的浏览器不识别第二条声明，因此只有第一条会生效；而对于支持 RGBA 的浏览器来说，它们可以同时识别这两条声明，但由于第二条声明的权重更高，这些浏览器最终将显示出半透明的效果。
 
 总结：（1）通过样式的层叠提供完善的回退样式——浏览器前缀
-     （2）CSS向前兼容机制：先写回退样式，再写理想样式
+​     （2）CSS向前兼容机制：先写回退样式，再写理想样式
 
 转自：
 http://www.10tiao.com/html/482/201604/2651552670/1.html
 https://www.jianshu.com/p/d313f1108862
 
-#### IE滤镜
+#### 8.IE滤镜
 
 待补充....
 
-### 1.半透明边框
+### 笔记内容
+
+#### 1.半透明边框
 
 使用半透明颜色可能面临的问题：
 
@@ -414,7 +414,7 @@ div{
 }
 ```
 
-### 2.多重边框
+#### 2.多重边框
 
 方案一：box-shadow方案
 
@@ -428,7 +428,7 @@ div{
 + outline属性实现的“边框”不会贴合元素的圆角
 + 需要在不同的浏览器下测试最终效果
 
-### 3.灵活的背景定位
+#### 3.灵活的背景定位
 
 方案一：background-position
 
@@ -436,7 +436,7 @@ div{
 
 方案三：calc()
 
-### 4.边框内圆角
+#### 4.边框内圆角
 
 box-shadow+outline
 
@@ -463,6 +463,86 @@ box-shadow的扩张值：小于描边的宽度，约等于圆角半径的一半
 
 
 ## 第三章
+
+### 知识仓库
+
+#### 1.圆角border-radius
+
+基础图形：
+
+![img](images/border-radius基础图形.jpeg)
+
+属性值：
+
+![img](images/border-radius属性值.png)
+
+![img](images/border-radius属性详解.png)
+
+边框大小和内外半径
+
+![img](images/圆角和内外径.png)
+
+外径：x =100px    y=100px
+
+内径：x= 100-40=60px     y=100-20=80px
+
+#### 2.倾斜skew
+
+
+
+### 笔记内容
+
+#### 1.自适应椭圆
+
+不指定宽度和高度
+
+```css
+div{
+    border-radius: 50% / 50%;
+	//简化：
+	border-radius: 50%;
+}
+```
+
+#### 2.半椭圆
+
+![img](images/半椭圆.png)
+
+分析：
+
+【1】这个形状是垂直对称的， 所以左上角和右上角的半径值是相同的； 与此类似，左下角和右下角的半径值也是相同的。顶部边缘并没有平直的部分（ 也就是说， 整个顶边都是曲线），左上角和右上角的半径之和应该等于整个形状的宽度，左半径和右半径在水平方向上的值均为50%。
+
+【2】再看看垂直方向， 顶部的两个圆角占据了整个元素的高度， 而且底部完全没有任何圆角。 因此， 在垂直方向上border-radius  就是100% 100% 0 0。
+
+```css
+div{
+    width: 300px;
+    height: 200px;
+    border:20px red solid;
+    margin: 20px auto;
+    /*border-radius: 50% 50% 0 0/100% 100% 0 0;*/
+    /*简化:*/
+   border-radius: 50%/100% 100% 0 0;
+}
+```
+
+#### 3.四分之一椭圆
+
+ 其中一个角的水平和垂直半径值都需要是100%， 而其他三个角都不能设为圆角
+
+```css
+div{
+    width: 300px;
+    height: 200px;
+    border:20px red solid;
+    margin: 20px auto;
+    border-radius: 100% 0 0 0;
+}
+```
+
+糖果按钮：<http://simurai.com/archive/buttons/>
+
+
 
 ## 第四章
 

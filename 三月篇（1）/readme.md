@@ -5,7 +5,7 @@ Table of Contents
       * [第一章](#第一章)
       * [第二章	背景与边框](#第二章背景与边框)
          * [知识仓库](#知识仓库)
-            * [1.盒子模型](#1盒子模型)
+            * [1.盒子模型](#1.盒子模型)
             * [2.outline属性(描边)和outline-offset属性](#2outline属性描边和outline-offset属性)
             * [3.背景属性](#3背景属性)
             * [4.阴影效果box-shadow属性](#4阴影效果box-shadow属性)

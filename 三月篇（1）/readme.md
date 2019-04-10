@@ -2225,8 +2225,8 @@ div{
 
 ```css
 video {
-	cursor: url();
-	/*内容为：transparent.gif*/
+	cursor: url("");
+	/*内容为：url - transparent.gif*/
 }
 ```
 
@@ -2242,7 +2242,7 @@ video{
 
 ```css
 video{
-    /*cursor: url();*/
+    /*cursor: url("");*/
     /*内容为：transparent.gif*/
 	cursor: none;
 }

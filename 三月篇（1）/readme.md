@@ -1,10 +1,8 @@
-[TOC]
-
 Table of Contents
 =================
 
    * [本周书目——CSS揭秘](#本周书目css揭秘)
-      * [第一章](#第一章)
+      * [第一章	引言](#第一章引言)
       * [第二章	背景与边框](#第二章背景与边框)
          * [知识仓库](#知识仓库)
             * [1. 盒子模型](#1-盒子模型)
@@ -44,20 +42,64 @@ Table of Contents
       * [第四章	视觉效果](#第四章视觉效果)
          * [知识仓库](#知识仓库-2)
             * [1.box-shadow阴影效果](#1box-shadow阴影效果)
+            * [2.滤镜filter属性](#2滤镜filter属性)
          * [笔记内容](#笔记内容-2)
             * [1.单侧投影](#1单侧投影)
-            * [2.不规则投影](#2不规则投影)
-            * [3.染色效果](#3染色效果)
-            * [4.毛玻璃效果](#4毛玻璃效果)
-            * [5.折角](#5折角)
+            * [2.邻边投影](#2邻边投影)
+            * [3.双侧投影](#3双侧投影)
+            * [4.不规则投影](#4不规则投影)
+            * [5.染色效果](#5染色效果)
+            * [6.毛玻璃效果](#6毛玻璃效果)
+            * [7.折角](#7折角)
       * [第五章	字体排印](#第五章字体排印)
+         * [知识仓库](#知识仓库-3)
+         * [笔记内容](#笔记内容-3)
+            * [1.连字符断行](#1连字符断行)
+            * [2.插入换行](#2插入换行)
+            * [3.文本行的斑马条纹](#3文本行的斑马条纹)
+            * [4.调整tab 的宽度](#4调整tab-的宽度)
+            * [5.连字](#5连字)
+            * [6.华丽的&amp; 符号](#6华丽的-符号)
+            * [7.自定义下划线](#7自定义下划线)
+            * [8.现实中的文字效果](#8现实中的文字效果)
+            * [9.环形文字](#9环形文字)
       * [第六章	用户体验](#第六章用户体验)
+         * [知识仓库](#知识仓库-4)
+            * [1.CSS3——滤镜filter](#1css3滤镜filter)
+         * [笔记内容](#笔记内容-4)
+            * [1.使用合适的鼠标光标](#1使用合适的鼠标光标)
+            * [2.扩大可点击区域（热区）](#2扩大可点击区域热区)
+            * [3.自定义复选框](#3自定义复选框)
+            * [4.通过阴影来弱化背景](#4通过阴影来弱化背景)
+            * [5.通过模糊来弱化背景](#5通过模糊来弱化背景)
+            * [6.滚动提示](#6滚动提示)
+            * [7.交互式的图片对比控件](#7交互式的图片对比控件)
       * [第七章	结构与布局](#第七章结构与布局)
+         * [知识仓库](#知识仓库-5)
+         * [笔记内容](#笔记内容-5)
+            * [1.自适应内部元素](#1自适应内部元素)
+            * [2.精确控制表格列宽](#2精确控制表格列宽)
+            * [3.根据兄弟元素的数量来设置样式](#3根据兄弟元素的数量来设置样式)
+            * [4.满幅的背景，定宽的内容](#4满幅的背景定宽的内容)
+            * [5.垂直居中](#5垂直居中)
+            * [6.紧贴底部的页脚](#6紧贴底部的页脚)
       * [第八章	过渡与动画](#第八章过渡与动画)
+         * [知识仓库](#知识仓库-6)
+            * [1.transition 过渡](#1transition-过渡)
+            * [2.动画animation](#2动画animation)
+         * [笔记内容](#笔记内容-6)
+            * [1.缓动效果](#1缓动效果)
+            * [2.逐帧动画](#2逐帧动画)
+            * [3.闪烁效果](#3闪烁效果)
+            * [4.打字动画](#4打字动画)
+            * [5.状态平滑的动画](#5状态平滑的动画)
+            * [6.沿环形路线平移的动画](#6沿环形路线平移的动画)
+
+
 
 # 本周书目——CSS揭秘
 
-## 第一章
+## 第一章	引言
 
 ## 第二章	背景与边框
 
@@ -87,17 +129,24 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
 
 + background-image:url('')
 
-+ Background-repeat:no-repeat repeat repeat-x repeat-y
++ background-repeat:no-repeat repeat repeat-x repeat-y
 
-+ Background-attachment:scroll fixed
++ background-attachment:scroll fixed
 
 + background-position:% length left/center/right|% length top center bottom
 
 + background-origin(**背景图片**的原点位置):border-box padding-box content-box 
 
+  背景图片的起点位置，该属性只对背景图片有效，对背景色无效，默认值：**padding-box**
+
+  背景图片  VS  背景色
+
+  + **背景图在上，背景色在下**
+  + **背景图起点默认在padding-box，背景色起点默认在border-box**，且不可更改
+
 + background-clip(**背景图片**或**背景颜色**的裁剪):border-box padding-box content-box 
 
-  背景图片或背景色的起点默认是border-box，根据属性值对图片进行裁剪
+  根据属性值对背景图片进行裁剪
 
   + border-box：背景延伸至边框外沿（但是在边框下层）。
   + padding-box：背景延伸至内边距`padding`外沿。不会绘制到边框处。
@@ -109,7 +158,7 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
 
   ![img](images/content-box.png)
 
-+ background-size(**背景图片**的尺寸):contain cover % length auto
++ background-size(**背景图片**或背景色的尺寸):contain cover % length auto
 
   设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。
 
@@ -122,7 +171,7 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
       + 如果仅有一个数值被给定，这个数值将作为宽度值大小，高度值将被设定为`auto。`
       + 如果有两个数值被给定，第一个将作为宽度值大小，第二个作为高度值大小。
       + 每个值可以是`<length>`,  `<percentage>`, 或者 `auto`.
-    + 设置多个背景用，分隔
+    + 设置多个背景  用，分隔
 
   ![img](images/background-size.png)
 
@@ -130,15 +179,27 @@ outline-offset：设置 outline 与一个元素边缘或边框之间的间隙。
 
 #### 4. 阴影效果box-shadow属性
 
-box-shadow:x偏移量 | y偏移量 | 模糊半径(**模糊程度**) | 阴影扩散半径(**向四个方向扩散**) | 阴影颜色|inset(内扩散)
+1️⃣基础语法：
 
-阴影的长宽默认和本元素相同，扩散半径是将阴影向四个方向扩散，放大阴影
+> box-shadow:x偏移量 | y偏移量 | 模糊半径| 阴影扩散半径(**向四个方向扩散**) | 阴影颜色|inset(内扩散)
 
-虽然颜色是可选择的，但如果不设置颜色，safari/chrome和firefox表现不同，在webkit内核的浏览器下阴影表现为透明色(无效果)而mozilla和oprea下表现为黑色。所以在使用box-shadow时必须加上阴影颜色。
+2️⃣解析参数：
 
-**x,y坐标为正，是向右和下扩散，x,y坐标为负，是向左向上扩散**。模糊值为0，没有模糊效果类似于边框效果，模糊半径值越大，越模糊；阴影扩散长度就是代表阴影的宽度，值越大阴影越多。
+①阴影的长宽默认和本元素相同，扩散半径是将阴影向四个方向扩散，放大/缩小阴影
 
-**用逗号分隔的列表来描述一个或多个阴影效果（通过设置的偏移量来确定是哪个边框的阴影）**。**如果元素同时设置了 `border-radius`，**阴影也会有圆角效果**。多层阴影重叠需要注意，**排在前面的阴影的宽度不能大于排在后面的阴影，否则后面的阴影无法遮挡，就不能做出四周不同阴影的效果
+②模糊半径：相当于设置了一个由目标颜色到白色的过渡颜色，过渡长度为模糊半径
+
++ 如果模糊半径为0，则没有过渡
++ 如果模糊半径为正值x，则相当于给阴影的四个边外都加了一个长度为x的过渡，横向/纵向过渡之和为2x
+
+③虽然颜色是可选择的，但如果不设置颜色，safari/chrome和firefox表现不同，在webkit内核的浏览器下阴影表现为透明色(无效果)而mozilla和oprea下表现为黑色。所以在使用box-shadow时必须加上阴影颜色。
+
+④**x,y坐标为正，是向右和下扩散，x,y坐标为负，是向左向上扩散**。
+
+⑤**用逗号分隔的列表来描述一个或多个阴影效果（通过设置的偏移量来确定是哪个边框的阴影）**。
+
++ **如果元素同时设置了 `border-radius`，**阴影也会有圆角效果**。**
++ 多层阴影重叠需要注意，**排在前面的阴影的宽度不能大于排在后面的阴影**，否则后面的阴影无法遮挡，就不能做出四周不同阴影的效果，即：先写的在上
 
 层级顺序：边框>内阴影>背景图片>背景颜色>外阴影
 
@@ -161,7 +222,13 @@ div{
 
 这个立体的效果，可以通过给before,after元素添加阴影并结合旋转等特性得到
 
+html：
 
+```html
+<div class="main">
+    <div class="box2 shadow"></div>
+</div>
+```
 
 ```css
    .box2 {
@@ -178,6 +245,7 @@ div{
         box-shadow: 0px 1px 4px rgba(0,0,0,0.3),/*下边框阴影*/
                     0px 0px 20px rgba(0,0,0,0.1) inset;/*四个方向的内阴影*/
     }
+	/**/
     .shadow::before, .shadow::after{
        content:"";
        position:absolute;
@@ -197,21 +265,14 @@ div{
      }
 ```
 
-html：
-
-```html
-<div class="main">
-    <div class="box2 shadow"></div>
-</div>
-```
-
-兼容性：IE6-8不支持，使用IE的shadow阴影滤镜
+3️⃣兼容性：IE6-8不支持，使用IE的shadow阴影滤镜
 
 ```css
 div{
 	-moz-box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
 	-webkit-box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
 	box-shadow:5px 5px 5px 3px rgba(255,0,0,.4);
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=’颜色值’, Direction=阴影角度（数值）, Strength=阴影半径（数值）);
 }
 ```
 
@@ -257,7 +318,7 @@ https://www.w3cplus.com/content/css3-box-shadow
 
   色相：哪个颜色，取值：0-360
 
-  ![image-20190327083015968](../../../../Users/lsb/Library/Application Support/typora-user-images/image-20190327083015968.png)
+  ![image](images/色相图.png)
 
   饱和度：颜色的纯度（颜色深浅程度）
 
@@ -598,9 +659,7 @@ div{
 
 **重复渐变**
 
-重复渐变可以实现线性渐变的重复效果，使色标在渐变线方向上无限重复，实现一些特殊的效果
-
-重复渐变适用于斜线条纹
+重复渐变可以实现线性渐变的重复效果，使色标在渐变线方向上无限重复，实现一些特殊的效果，**重复渐变适用于斜线条纹**
 
 [注意]只有当首尾两颜色位置不在0%或100%时，重复渐变才生效
 
@@ -621,7 +680,7 @@ div{
 
 ![img](images/纸张效果.png)
 
-例2：
+例2：斜条纹
 
 
 
@@ -639,10 +698,10 @@ div{
 ```css
 .test1,.test2{
 	background-image:
-    	linear-gradient(45deg,red 25%,transparent 25%),
-    	linear-gradient(-45deg,red 25%,transparent 25%),
-    	linear-gradient(45deg,transparent 75%,red 75%),
-    	linear-gradient(-45deg,transparent 75%,red 75%);
+    linear-gradient(45deg,red 25%,transparent 25%),
+    linear-gradient(-45deg,red 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,red 75%),
+    linear-gradient(-45deg,transparent 75%,red 75%);
  }
 .test2{
     background-size: 20% 20%;
@@ -1121,7 +1180,7 @@ div{
 
 ```css
 .something-meaningful{
-    background:url(stone-art.jpg);
+    /*background:url();*/
     background-size:cover;
     padding:1em;
 }
@@ -1143,8 +1202,8 @@ div{
 div{
     padding:1em;
     border:1em solid transparent;
-    background:linear-gradient(white,white)
-               url(stone-art.jpg);
+    background:linear-gradient(white,white);
+               /*url()*/
     background-size:cover;
     background-clip:padding-box,border-box;
     background-origin:border-box;
@@ -1310,7 +1369,7 @@ translate有一个最常见的应用，即当元素宽度高度不固定时，�
 
 属性：**transform**
 
-函数：**rotate(ndeg)**：2D旋转，为绕Z轴旋转
+函数：**rotate(ndeg)**：2D旋转，**为绕Z轴旋转**
 
 ​	    **rotateX()**: 指定X轴的旋转角度;
 
@@ -1992,17 +2051,74 @@ div{
 
 #### 1.box-shadow阴影效果
 
+高斯模糊：使用高斯模糊算法（ 或类似算法） 将阴影进行4px  的模糊处理。 这在本质上表示在阴影边缘发生阴影色和纯透明色之间的颜色过渡长度近似于模糊半径的两倍（ 比如在这里是8px）。
+
+ 如果给元素设置一层半透明的背景，我们就看不到它下层有任何投影。这一点跟text-shadow 不同，因为文字下层的投影不会被裁切。  
+
+   见第二章知识仓库
+
+#### 2.滤镜filter属性
+
+
+
 ### 笔记内容
 
 #### 1.单侧投影
 
-#### 2.不规则投影
+原理：使用负的扩展半径，且刚好等于模糊半径
 
-#### 3.染色效果
+```css
+div{
+	box-shadow: 0 5px 4px -4px black;  
+}
+```
 
-#### 4.毛玻璃效果
+效果图：
 
-#### 5.折角
+![](images/单边投影.png)
+
+#### 2.邻边投影
+
+方法一：使用与模糊半径相等的偏移量来隐藏顶部和左侧的投影
+
+方法二：扩张半径设为模糊半径的相反值一半， 指定两个偏移量， 它们的值需要大于或等于模糊半径的一半。
+
+#### 3.双侧投影
+
+原理：因为扩张半径在四个方向上的作用是均等的（ 也就是说， 我们无法指定投影在水平方向上放大， 而在垂直方向上缩小）， 唯一的办法是用两块投影（每边各一块） 来达到目的。 ( 把“单侧投影” 中的技巧运用两次)
+
+#### 4.不规则投影
+
+ 给一个矩形或其他能用border-radius生成的形状加投影时，box-shadow 的表现都堪称完美。 但当元素添加了一些伪元素或半透明的装饰之后， 它就有些力不从心了， 因为**box-shadow 会忽视透明部分**。 这类情况包括：
+
++ 半透明图像、 背景图像、 或者border-image（ 比如老式的金质像框）；
+
++ 元素设置了点状、 虚线或半透明的边框， 但没有背景（ 或者当background-clip  不是border-box  时）;
++ 对话气泡， 它的小尾巴通常是用伪元素生成的；
+
++ 切角形状；
++ 折角效果
++ 通过 clip-path  生成的形状， 比如“菱形图片”。
+
+效果图：
+
+![](images/box-shadow无效.png)
+
+解决：filter属性——滤镜效果
+
+
+
+
+
+
+
+
+
+#### 5.染色效果
+
+#### 6.毛玻璃效果
+
+#### 7.折角
 
 效果图：
 
@@ -2029,12 +2145,367 @@ div{
    }
 ```
 
-## 
+
 
 ## 第五章	字体排印
 
+### 知识仓库
+
+### 笔记内容
+
+#### 1.连字符断行
+
+#### 2.插入换行
+
+#### 3.文本行的斑马条纹
+
+#### 4.调整tab 的宽度
+
+#### 5.连字
+
+#### 6.华丽的& 符号
+
+#### 7.自定义下划线
+
+#### 8.现实中的文字效果
+
+#### 9.环形文字
+
 ## 第六章	用户体验
+
+### 知识仓库
+
+#### 1.CSS3——滤镜filter
+
+**filter** 属性将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。
+
++ url(resources.svg#c1)
+
+  URL函数接受一个XML文件，该文件设置了 一个SVG滤镜，且可以包含一个锚点来指定一个具体的滤镜元素。
+
++ 模糊：blur(<length>)
+
++ 对比度：contrast(<number-percentage>)
+
++ 亮度：brightness(<number-percentage>)
+
++ 阴影：drop-shadow(<length>){2,4}? color)
+
++ 灰度：grayscale(<number-percentage>)
+
++ 褐色：sepia(<number-percentage>)
+
++ 饱和度：saturate(<number-percentage>)
+
++ 色相旋转：hue-rotate(<angle>)
+
++ 反色：invert(<number-percentage>)
+
++ 透明度：opacity(<number-percentage>
+
+### 笔记内容
+
+#### 1.使用合适的鼠标光标
+
+![](images/cursor.png)
+
+**提示禁用状态**
+
+```css
+:disabled, [disabled], [aria-disabled="true"] {
+	cursor: not-allowed;
+}
+```
+
+**隐藏鼠标光标**——隐藏鼠标光标确实能带来可用性的提升
+
+场景：① 公共触摸屏（ 比如公共场所的信息查询台， 飞机椅背上的娱乐系统）②视频播放时
+
+在CSS 2.1 中，隐藏光标需要用到一张1×1 的透明GIF 图片
+
+```css
+video {
+	cursor: url();
+	/*内容为：transparent.gif*/
+}
+```
+
+在CSS 2.1 中
+
+```css
+video{
+    cursor:none;
+}
+```
+
+不过，还是有必要提供一个回退方案，因为旧版浏览器可能还不认识这些新的光标关键字。我们可以利用层叠机制来实现这一点：
+
+```css
+video{
+    /*cursor: url();*/
+    /*内容为：transparent.gif*/
+	cursor: none;
+}
+```
+
+#### 2.扩大可点击区域（热区）
+
+方法一： 扩张热区最简单的办法是为它设置一圈透明边框， 因为鼠标对元素边框的交互也会触发鼠标事件
+
+```css
+button{
+    border: 10px solid transparent;
+    /*背景在默认情况下会蔓延到边框的下层。background-clip属性可以把背景限制在原本的区域之内*/
+	background-clip: padding-box;
+    /*用内嵌投影来模拟出一道（实色）边框*/
+    box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;	
+}
+```
+
+问题：想给按钮添加外阴影的时候，外部投影却是绘制在border box 外部的，会产生怪异效果
+
+方法二：伪元素——：伪元素同样可以代表其宿主元素来响应鼠标交互
+
+```css
+button {
+	position: relative;
+	/* [其余样式] */
+}
+button::before {
+	content: '';
+	position: absolute;
+	top: -10px; right: -10px;
+	bottom: -10px; left: -10px;
+}
+```
+
+#### 3.自定义复选框
+
+
+
+#### 4.通过阴影来弱化背景
+
+很多时候， 我们需要通过一层半透明的遮罩层来把后面的一切整体调暗， 以便凸显某个特定的UI  元素， 引导用户关注。 比如， 弹出层以及交互式的“ 快速指南” 就是这种效果的典型案例。 
+
+方法一：常见方法——是**增加一个额外的HTML 元素用于遮挡背景**
+
+```css
+.overlay { /* 用于遮挡背景 */
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,.8);
+}
+.lightbox { /* 需要吸引用户注意的元素 */
+    position: absolute;
+	z-index: 1;   
+}
+```
+
+ 这个方法稳定可靠 ，但需要增加一个额外的HTML 元素 ，这意味着该效果无法由CSS 单独实现 。这不是一个很严重的问题 ，但对我们来说又确实是个麻烦事 。
+
+方法二：伪元素
+
+①将遮罩层加在body的伪元素上
+
+```
+body.dimmed::before {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+left: 0;
+z-index: 1;
+background: rgba(0,0,0,.8);
+}
+```
+
+这个办法确实有一定改善，因为我们可以直接在CSS 层面使用这个效果了。
+
+问题：这个方法的可移植性还不够好，因为body 元素上可能有其他需求已经占用了::before 伪元素；而且在使用这个效果时，我们往往还需要一点JavaScript 来给body 添加dimmed 这个类。
+
+②将遮罩层加在元素的伪元素上
+
+这解决了可移植性的问题，但无法对遮罩层的Z 轴层次进行细粒度的控制。它可能会出现在这个元素之后（这是我们期望的），但也可能会出现在这个元素的父元素或祖先元素之后。
+
+
+
+伪元素方法存在的问题：伪元素无法绑定独立的JavaScript 事件处理函数。当遮罩层是由一个独立的元素来实现时，我们可以给它绑定事件处理函数，比如当用户点击遮罩层时自动关闭弹出层。当使用弹出层自己的伪元素来实现遮罩层时，就需要判断用户到底是点了弹出层还是遮罩层。
+
+方法三：box-shadow方案
+
+对于简单的应用场景和产品原型来说，可以利用box-shadow 来达到调暗背景的效果：box-shadow 的扩张参数可以把元素的投影向各个方向延伸放大。具体做法就是生成一个巨大的投影，不偏移也不模糊，简单而拙劣地模拟出遮罩层的效果。
+
+```css
+div{
+    box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+}
+```
+
+问题1： 无法在较大的屏幕分辨率（>2000px） 下正常工作。 要么加大数字来缓解这个问题， 要么换用视口单位来一劳永逸地解决它， 这样才能确保“ 遮罩层”总是 可以覆盖（ 甚至超出） 视口。 因为无法分开指定水平和垂直方向上的扩张半径， 所以此处最合适的视口单位是vmax。1vmax  相当于1vw  和1vh  两者中的较大值。100vw  等于整个视口的宽度，100vh  就是视口的高度。 因此， 满足我们需求的最小值就是50vmax。 由于投影是同时向四个方向扩展的， 这个遮罩层的最终尺寸将是100vmax  加上元素本身的尺寸。
+
+问题2：遮罩层的尺寸是与视口相关而不是与页面相关的，滚动页面时，遮罩层的边缘就露出来了， 除非给它加上position: fixed; 或者页面并没有长到需要滚动的程度。此外，由于页面很可能真的很长，为了规避这个缺陷而扩大投影的扩张半径就不太明智了。 实际中应该有限度地应用这个技巧， 比如配合固定定位来使用， 或者当页面没有滚动条时再用。
+
+问题3：第二，当使用一个独立的元素（或伪元素）来实现遮罩层时，这个遮罩层不仅可以从视觉上把用户的注意力引导到关键元素上，还可以防止用户的鼠标与页面的其他部分发生交互，因为遮罩层会捕获所有指针事件。boxshadow并没有这种能力，因此它只能在视觉上起到引导注意力的作用，却无法阻止鼠标交互
+
+方法四：backdrop 方案
+
+缺点：兼容性问题，支持有限
+
+#### 5.通过模糊来弱化背景
+
+原理： 用一个额外的HTML  元素来实现这个效果，需要把页面上除了关键元素之外的一切都包裹起来， 这样就可以只对这个容器元素进行模糊处理了。<main>  元素在这里是极为合适的， 因为它可以发挥一箭双雕的作用： 把页面中的主要内容标记出来（ 对话框通常都不是主要内容）， 同时还给了我们添加样式的钩子
+
+```html
+<main>Bacon Ipsum dolor sit amet...</main>
+<dialog>
+	O HAI, I'm a dialog. Click on me to dismiss.
+</dialog>
+<!-- 其他对话框都写在这里 -->
+```
+
+ 它并没有配备遮罩层。 每当弹出一个对话框， 都需要给main元素增加一个类， 以便对它应用模糊滤镜：
+
+```css
+main.de-emphasized {
+	filter: blur(5px);
+}
+```
+
+优化：
+
+```css
+main {
+	transition: .6s filter;
+}
+main.de-emphasized {
+	filter: blur(3px) contrast(.8) brightness(.8);
+}
+```
+
+缺点： 着一旦滤镜不被支持 ，没有任何回退方案 。可使用box-shadow方案来实现阴影效果
+
+#### 6.滚动提示
+
+
+
+#### 7.交互式的图片对比控件
+
+
+
+
 
 ## 第七章	结构与布局
 
+### 知识仓库
+
+### 笔记内容
+
+#### 1.自适应内部元素
+
+ 如果不给元素指定一个具体的height， 它就会自动适应其内容的高度。如何实现宽度的自适应
+
+#### 2.精确控制表格列宽
+
+#### 3.根据兄弟元素的数量来设置样式
+
+#### 4.满幅的背景，定宽的内容
+
+#### 5.垂直居中
+
+#### 6.紧贴底部的页脚
+
 ## 第八章	过渡与动画
+
+### 知识仓库
+
+#### 1.transition 过渡
+
++ 过渡属性`transition-property`
+
++ 过渡时间`transition-duration`
+
++ 过渡函数`transition-timing-function`
+
+  （1）ease：逐渐放慢
+
+  （2）linear：匀速
+
+  （3）ease-in：加速
+
+  （4）ease-out：减速
+
+  （5）cubic-bezier函数：自定义速度模式
+
+  使用工具网站来定制：[http://cubic-bezier.com](http://cubic-bezier.com/)
+
++ 延迟时间 `transition-delay`
+
+transition的优点在于简单易用，但是它有几个很大的局限。
+
+（1）transition需要事件触发，所以没法在网页加载时自动发生。
+
+（2）transition是一次性的，不能重复发生，除非一再触发。
+
+（3）transition只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态。
+
+CSS Animation就是为了解决这些问题而提出的。
+
+#### 2.动画animation
+
+默认是：
+
+- 动画名称`animation-name`: `none`
+
+- 动画持续时间`animation-duration`: `0s`
+
+- 动画函数`animation-timing-function`: `ease`
+
+- 动画延迟`animation-delay`: `0s`
+
+- 动画重复次数`animation-iteration-count`: `<number>`|`infinite`
+
+- 动画方向`animation-direction`——指示动画是否反向播放: `normal` |` reverse `| `alternate` | `alternate-reverse`
+
+  + `normal`：每个循环内动画向前循环，即：每个动画循环结束，动画重置到起点重新开始，默认属性。
+  + `reverse`：反向运行动画，每周期结束动画由尾到头运行。
+  + `alternate`：动画交替反向运行，反向运行时，动画按步后退，同时，带时间功能的函数也反向
+  + 
+
+- 动画完成模式`animation-fill-mode`: `none`|`forwards`|`backwards`|`both`
+
+- 动画播放状态`animation-play-state`: `running`|`paused`
+
+
+
+
+### 笔记内容
+
+#### 1.缓动效果
+
+ 回弹效果是指当一个过渡达到最终值时， 往回倒一点， 然后再次回到最终值， 如此往复一次或多次， 并逐渐收敛， 最终稳定在最终值。
+
+举个例子，假设要用一个元素来模拟一个下落的小球，我们会把transform 属性1①从none 过渡到translateY(350px) 来模拟这个下落过程。
+
+有相当多的JavaScript 类库可以创建动画，且内置回弹效果
+
+#### 2.逐帧动画
+
+
+
+#### 3.闪烁效果
+
+
+
+#### 4.打字动画
+
+
+
+#### 5.状态平滑的动画
+
+
+
+#### 6.沿环形路线平移的动画
+

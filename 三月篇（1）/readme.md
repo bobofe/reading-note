@@ -210,13 +210,7 @@ div{
 }
 ```
 
-例1：
-
-![image-20190328093605140](../../../../Users/lsb/Library/Application Support/typora-user-images/image-20190328093605140.png)
-
-
-
-例2：结合:before,:after元素制造阴影效果
+例1：结合:before,:after元素制造阴影效果
 
 ![img](images/box-shadow.png)
 
@@ -411,7 +405,7 @@ html5shiv/html5shim:
 
 ```
 header,section,footer,aside,nav,article,figure {
-  display: block;
+    display: block;
 }
 ```
 
@@ -484,8 +478,7 @@ div{
 
 这种写法更像是具备了 “特性检测” 的功效：不支持 RGBA 的浏览器不识别第二条声明，因此只有第一条会生效；而对于支持 RGBA 的浏览器来说，它们可以同时识别这两条声明，但由于第二条声明的权重更高，这些浏览器最终将显示出半透明的效果。
 
-总结：（1）通过样式的层叠提供完善的回退样式——浏览器前缀
-​     （2）CSS向前兼容机制：先写回退样式，再写理想样式
+总结：（1）通过样式的层叠提供完善的回退样式——浏览器前缀（2）CSS向前兼容机制：先写回退样式，再写理想样式
 
 转自：
 http://www.10tiao.com/html/482/201604/2651552670/1.html
@@ -1703,7 +1696,7 @@ div{
     margin: 20px auto;
     /*border-radius: 50% 50% 0 0/100% 100% 0 0;*/
     /*简化:*/
-    border-radius: 50%/100% 100% 0 0;
+   border-radius: 50%/100% 100% 0 0;
 }
 ```
 
@@ -1733,19 +1726,19 @@ div{
 ```
 
 ```css
-    .btn{
-        width: 150px;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        background-color: #fb3;
+.btn{
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: #fb3;
 
-        transform: skew(-45deg);
+    transform: skew(-45deg);
 
-        -moz-transform: skew(-45deg);
-        -ms-transform: skew(-45deg);
-        -webkit-transform: skew(-45deg);
-    }
+    -moz-transform: skew(-45deg);
+    -ms-transform: skew(-45deg);
+    -webkit-transform: skew(-45deg);
+}
 ```
 
 实际图：
@@ -1889,18 +1882,18 @@ img{
 
 
 ```css
-		.qiejiao3{
-            width: 200px;
-            height: 200px;
-            background: red;
-            background:
-                    linear-gradient(45deg,transparent 10%,red 10%) left,
-                    linear-gradient(-45deg,transparent 10%,blue 10%) right;
-            -webkit-background-size: 50% 100%;
-            background-size: 50% 100%;
-            background-repeat: no-repeat;
-            margin-bottom: 10px;
-        }
+.qiejiao3{
+    width: 200px;
+    height: 200px;
+    background: red;
+    background:
+            linear-gradient(45deg,transparent 10%,red 10%) left,
+            linear-gradient(-45deg,transparent 10%,blue 10%) right;
+    -webkit-background-size: 50% 100%;
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
 ```
 
 
@@ -1914,21 +1907,21 @@ img{
 ![](images/切角3.png)
 
 ```css
-       .qiejiao4{
-            width: 200px;
-            height: 200px;
-            background: red;
-            background:
-                    linear-gradient(45deg,transparent 10%,red 10%) left bottom,
-                    linear-gradient(-45deg,transparent 10%,blue 10%) right bottom,
-                    linear-gradient(135deg,transparent 10%,yellow 10%) left top,
-                    linear-gradient(-135deg,transparent 10%,orange 10%) right top;
+.qiejiao4{
+    width: 200px;
+    height: 200px;
+    background: red;
+    background:
+            linear-gradient(45deg,transparent 10%,red 10%) left bottom,
+            linear-gradient(-45deg,transparent 10%,blue 10%) right bottom,
+            linear-gradient(135deg,transparent 10%,yellow 10%) left top,
+            linear-gradient(-135deg,transparent 10%,orange 10%) right top;
 
-            -webkit-background-size: 50% 50%;
-            background-size: 50% 50%;
-            background-repeat: no-repeat;
-            margin-bottom: 10px;
-        }
+    -webkit-background-size: 50% 50%;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
 ```
 
 #### 7.梯形
@@ -2020,29 +2013,29 @@ div{
 ![](images/梯形5.png)
 
 ```css
-        .tixing-nav a{
-            display: inline-block;
-            position: relative;
-            padding: .3em 1em 0;
-        }
-        .tixing-nav a:before{
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
+.tixing-nav a{
+    display: inline-block;
+    position: relative;
+    padding: .3em 1em 0;
+}
+.tixing-nav a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
 
-            background: #ccc;
-            /*background: linear-gradient(hsla(0,0%,100%,.6),hsla(0,0%,100%,.6));*/
-            border: 1px solid rgba(0,0,0,.4);
-            transform: perspective(.5em) rotateX(5deg) scaleY(1.3);
-            transform-origin: bottom;
-            border-radius:8px 8px 0 0 ;
-            box-shadow: 0 .1em white inset;
-            /*让tab看起来有立体感*/
-        }
+    background: #ccc;
+    /*background: linear-gradient(hsla(0,0%,100%,.6),hsla(0,0%,100%,.6));*/
+    border: 1px solid rgba(0,0,0,.4);
+    transform: perspective(.5em) rotateX(5deg) scaleY(1.3);
+    transform-origin: bottom;
+    border-radius:8px 8px 0 0 ;
+    box-shadow: 0 .1em white inset;
+    /*让tab看起来有立体感*/
+}
 ```
 
 ## 第四章	视觉效果
@@ -2127,22 +2120,21 @@ div{
 ```
 
 ```css
-	 .box{
-        position: relative;
-        background-color: #58a; /*hack 回退*/
-        background: linear-gradient(-150deg, transparent 30px, yellowgreen 0);
-    }
-
-    .box:before {
-        position: absolute;
-        content: '';
-        width: 62px;
-        height: 34px;
-        top: 0;
-        right: 0;
-        background: linear-gradient(-30deg, transparent 30px, rgba(0, 0, 0, .7) 0);
-        transform: rotate(-120deg); 
-   }
+.box{
+	position: relative;
+	background-color: #58a; /*hack 回退*/
+	background: linear-gradient(-150deg, transparent 30px, yellowgreen 0);
+}
+.box:before {
+	position: absolute;
+	content: '';
+	width: 62px;
+	height: 34px;
+	top: 0;
+	right: 0;
+	background: linear-gradient(-30deg, transparent 30px, rgba(0, 0, 0, .7) 0);
+	transform: rotate(-120deg); 
+}
 ```
 
 
@@ -2234,7 +2226,7 @@ video {
 
 ```css
 video{
-  cursor:none;
+    cursor:none;
 }
 ```
 
@@ -2242,8 +2234,8 @@ video{
 
 ```css
 video{
-  /*cursor: url("");*/
-  /*内容为：transparent.gif*/
+    /*cursor: url("");*/
+    /*内容为：transparent.gif*/
 	cursor: none;
 }
 ```
@@ -2254,11 +2246,11 @@ video{
 
 ```css
 button{
-  border: 10px solid transparent;
-  /*背景在默认情况下会蔓延到边框的下层。background-clip属性可以把背景限制在原本的区域之内*/
+    border: 10px solid transparent;
+    /*背景在默认情况下会蔓延到边框的下层。background-clip属性可以把背景限制在原本的区域之内*/
 	background-clip: padding-box;
-  /*用内嵌投影来模拟出一道（实色）边框*/
-  box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;	
+    /*用内嵌投影来模拟出一道（实色）边框*/
+    box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;	
 }
 ```
 
@@ -2299,7 +2291,7 @@ button::before {
 	background: rgba(0,0,0,.8);
 }
 .lightbox { /* 需要吸引用户注意的元素 */
-  position: absolute;
+    position: absolute;
 	z-index: 1;   
 }
 ```
@@ -2310,7 +2302,7 @@ button::before {
 
 ①将遮罩层加在body的伪元素上
 
-```
+```css
 body.dimmed::before {
 	position: fixed;
 	top: 0;
@@ -2340,7 +2332,7 @@ body.dimmed::before {
 
 ```css
 div{
-   box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+    box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
 }
 ```
 
@@ -2394,6 +2386,9 @@ main.de-emphasized {
 #### 7.交互式的图片对比控件
 
 
+
+
+
 ## 第七章	结构与布局
 
 ### 知识仓库
@@ -2402,7 +2397,7 @@ main.de-emphasized {
 
 #### 1.自适应内部元素
 
-	如果不给元素指定一个具体的height， 它就会自动适应其内容的高度。如何实现宽度的自适应
+ 如果不给元素指定一个具体的height， 它就会自动适应其内容的高度。如何实现宽度的自适应
 
 #### 2.精确控制表格列宽
 

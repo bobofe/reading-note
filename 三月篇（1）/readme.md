@@ -2316,9 +2316,9 @@ body.dimmed::before {
 	top: 0;
 	right: 0;
 	bottom: 0;
-left: 0;
-z-index: 1;
-background: rgba(0,0,0,.8);
+	left: 0;
+	z-index: 1;
+	background: rgba(0,0,0,.8);
 }
 ```
 

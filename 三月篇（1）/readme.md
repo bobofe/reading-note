@@ -411,7 +411,7 @@ html5shiv/html5shim:
 
 ```
 header,section,footer,aside,nav,article,figure {
-    display: block;
+  display: block;
 }
 ```
 

@@ -2299,7 +2299,7 @@ button::before {
 	background: rgba(0,0,0,.8);
 }
 .lightbox { /* 需要吸引用户注意的元素 */
-    position: absolute;
+  position: absolute;
 	z-index: 1;   
 }
 ```
@@ -2312,13 +2312,13 @@ button::before {
 
 ```
 body.dimmed::before {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1;
-	background: rgba(0,0,0,.8);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		background: rgba(0,0,0,.8);
 }
 ```
 
@@ -2361,7 +2361,7 @@ div{
 ```html
 <main>Bacon Ipsum dolor sit amet...</main>
 <dialog>
-	O HAI, I'm a dialog. Click on me to dismiss.
+		O HAI, I'm a dialog. Click on me to dismiss.
 </dialog>
 <!-- 其他对话框都写在这里 -->
 ```
@@ -2370,7 +2370,7 @@ div{
 
 ```css
 main.de-emphasized {
-	filter: blur(5px);
+		filter: blur(5px);
 }
 ```
 
@@ -2378,10 +2378,10 @@ main.de-emphasized {
 
 ```css
 main {
-	transition: .6s filter;
+		transition: .6s filter;
 }
 main.de-emphasized {
-	filter: blur(3px) contrast(.8) brightness(.8);
+		filter: blur(3px) contrast(.8) brightness(.8);
 }
 ```
 
@@ -2392,9 +2392,6 @@ main.de-emphasized {
 
 
 #### 7.交互式的图片对比控件
-
-
-
 
 
 ## 第七章	结构与布局

@@ -522,7 +522,7 @@ css3定义了两种渐变：**线性渐变（Linear Gradients）**or **径向渐
 
     - 2. 如果传一个值半径
 
-    -   3 .如果传两个半径值
+    - 3 .如果传两个半径值
 
     - 4. 如果传关键字(closest-side/closest-corner/farthest-side/farthest-corner) 
 
@@ -758,14 +758,14 @@ farthest-corner：最远角；以最远的角到圆心的距离为半径
 
 ```css
 div{
-	/*closest-side*/
+    /*closest-side*/
     background: radial-gradient(closest-side,#ffaf7b, #d76d77 ,#3a1c71);
     /*40%只写一个表示40% 50%*/
-	background: radial-gradient(closest-side circle at 40%,#ffaf7b, #d76d77 ,#3a1c71);  
-	background: radial-gradient(closest-side circle at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
-	/*closest-corner*/
-	background: radial-gradient(closest-corner,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(closest-corner circle at 40%,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(closest-side circle at 40%,#ffaf7b, #d76d77 ,#3a1c71);  
+    background: radial-gradient(closest-side circle at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
+    /*closest-corner*/
+    background: radial-gradient(closest-corner,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(closest-corner circle at 40%,#ffaf7b, #d76d77 ,#3a1c71);
     background: radial-gradient(closest-corner circle at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
     /*farthest-side*/
     background: radial-gradient(farthest-side,#ffaf7b, #d76d77 ,#3a1c71);
@@ -787,22 +787,22 @@ div{
 ```css
 div{
     /*closest-side*/
-	background: radial-gradient(closest-side ellipse,#ffaf7b, #d76d77 ,#3a1c71);
-	/*40%只写一个表示40% 50%*/
-	background: radial-gradient(closest-side ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);  
-	background: radial-gradient(closest-side ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
-	/*closest-corner*/
-	background: radial-gradient(closest-corner ellipse,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(closest-corner ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(closest-corner ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
-	/*farthest-side*/
-	background: radial-gradient(farthest-side ellipse,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(farthest-side ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(farthest-side ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
-	/*farthest-corner*/
-	background: radial-gradient(farthest-corner ellipse,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(farthest-corner ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
-	background: radial-gradient(farthest-corner ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(closest-side ellipse,#ffaf7b, #d76d77 ,#3a1c71);
+    /*40%只写一个表示40% 50%*/
+    background: radial-gradient(closest-side ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);  
+    background: radial-gradient(closest-side ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
+    /*closest-corner*/
+    background: radial-gradient(closest-corner ellipse,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(closest-corner ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(closest-corner ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
+    /*farthest-side*/
+    background: radial-gradient(farthest-side ellipse,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(farthest-side ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(farthest-side ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
+    /*farthest-corner*/
+    background: radial-gradient(farthest-corner ellipse,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(farthest-corner ellipse at 40%,#ffaf7b, #d76d77 ,#3a1c71);
+    background: radial-gradient(farthest-corner ellipse at 20% 30%,#ffaf7b, #d76d77 ,#3a1c71);
 }
 ```
 
@@ -825,13 +825,13 @@ div{
 ```css
 div{
     background: radial-gradient(300px circle,hotpink, darkblue);
-	background: radial-gradient(200px circle,hotpink, darkblue);
-	background: radial-gradient(100px circle,hotpink, darkblue);
-	background: radial-gradient(50px circle,hotpink, darkblue);
-	background: radial-gradient(0px circle,hotpink, darkblue);
+    background: radial-gradient(200px circle,hotpink, darkblue);
+    background: radial-gradient(100px circle,hotpink, darkblue);
+    background: radial-gradient(50px circle,hotpink, darkblue);
+    background: radial-gradient(0px circle,hotpink, darkblue);
 
-	/*如果这里加了长短轴的尺寸后面又写了circle，那么circle是不起作用的，出来还是一个椭圆*/
-	background: radial-gradient(200px 50px ellipse,hotpink, darkblue);
+    /*如果这里加了长短轴的尺寸后面又写了circle，那么circle是不起作用的，出来还是一个椭圆*/
+    background: radial-gradient(200px 50px ellipse,hotpink, darkblue);
 }
 ```
 
@@ -1291,7 +1291,7 @@ div{
 
 【4】transform变形
 
-+ **位移 **
++ **位移**
 
 **属性：transform**
 

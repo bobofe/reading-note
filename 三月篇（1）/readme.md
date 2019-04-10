@@ -2127,7 +2127,7 @@ div{
 ```
 
 ```css
-	.box{
+	 .box{
         position: relative;
         background-color: #58a; /*hack 回退*/
         background: linear-gradient(-150deg, transparent 30px, yellowgreen 0);
@@ -2234,7 +2234,7 @@ video {
 
 ```css
 video{
-    cursor:none;
+  cursor:none;
 }
 ```
 
@@ -2242,8 +2242,8 @@ video{
 
 ```css
 video{
-    /*cursor: url("");*/
-    /*内容为：transparent.gif*/
+  /*cursor: url("");*/
+  /*内容为：transparent.gif*/
 	cursor: none;
 }
 ```
@@ -2254,11 +2254,11 @@ video{
 
 ```css
 button{
-    border: 10px solid transparent;
-    /*背景在默认情况下会蔓延到边框的下层。background-clip属性可以把背景限制在原本的区域之内*/
+  border: 10px solid transparent;
+  /*背景在默认情况下会蔓延到边框的下层。background-clip属性可以把背景限制在原本的区域之内*/
 	background-clip: padding-box;
-    /*用内嵌投影来模拟出一道（实色）边框*/
-    box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;	
+  /*用内嵌投影来模拟出一道（实色）边框*/
+  box-shadow: 0 0 0 1px rgba(0,0,0,.3) inset;	
 }
 ```
 
@@ -2312,13 +2312,13 @@ button::before {
 
 ```
 body.dimmed::before {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		z-index: 1;
-		background: rgba(0,0,0,.8);
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba(0,0,0,.8);
 }
 ```
 
@@ -2340,7 +2340,7 @@ body.dimmed::before {
 
 ```css
 div{
-    box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+   box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
 }
 ```
 
@@ -2361,7 +2361,7 @@ div{
 ```html
 <main>Bacon Ipsum dolor sit amet...</main>
 <dialog>
-		O HAI, I'm a dialog. Click on me to dismiss.
+	O HAI, I'm a dialog. Click on me to dismiss.
 </dialog>
 <!-- 其他对话框都写在这里 -->
 ```
@@ -2370,7 +2370,7 @@ div{
 
 ```css
 main.de-emphasized {
-		filter: blur(5px);
+	filter: blur(5px);
 }
 ```
 
@@ -2378,10 +2378,10 @@ main.de-emphasized {
 
 ```css
 main {
-		transition: .6s filter;
+	transition: .6s filter;
 }
 main.de-emphasized {
-		filter: blur(3px) contrast(.8) brightness(.8);
+	filter: blur(3px) contrast(.8) brightness(.8);
 }
 ```
 

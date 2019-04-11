@@ -675,7 +675,17 @@ div{
 
 例2：斜条纹
 
+效果图：
 
+![](images/斜条纹.png)
+
+```css
+.lg5{
+    width: 200px;
+    height: 200px;
+    background: repeating-linear-gradient(60deg,red,red 15px,blue 0,blue 30px);
+}
+```
 
 例3：
 
@@ -803,8 +813,6 @@ div{
 
 ![sizec3.png](images/径向渐变2.png)
 
-
-
 **第一个参数中的二个参数（形状，可忽略）**
 
 + 如果只参数shape（circle,ellipse）
@@ -840,9 +848,7 @@ div{
 
 ![img](images/径向圆心点.png)
 
-
-
-3. 如果方向为百分比确定圆心
++ 如果方向为百分比确定圆心
 
 可以是整数也可以是负数，可以超出范围，方向和上面的一样
 
@@ -854,50 +860,50 @@ div{
 
 >background: radial-gradient(100px circle at 75% 75%,#ffaf7b, #d76d77 20% ,#3a1c71 60%); background: radial-gradient(200px 100px ellipse at 25% 25%,#ffaf7b, #d76d77 60% ,#3a1c71 90%); 
 
-【4】兼容问题
+【4】兼容问
 
-1. 第一步只需要添加私有前缀就可以解决。
+1️⃣第一步只需要添加私有前缀就可以解决。
 
-   注意：标准语法要写在最下面，带有私有前缀的就不加to了，方向就是起始点
+注意：标准语法要写在最下面，带有私有前缀的就不加to了，方向就是起始点
 
-   >/*线性渐变*/
-   >background: -webkit-linear-gradient(left, hotpink , darkblue); /* Safari 5.1 - 6.0 */
-   >background: -o-linear-gradient(left, hotpink, darkblue); /* Opera 11.1 - 12.0 */
-   >background: -moz-linear-gradient(left, hotpink, darkblue); /* Firefox 3.6 - 15 */
-   >background: linear-gradient(to right, hotpink , darkblue); /* 标准的语法 */
-   >/*径向渐变*/
-   >background: -webkit-radial-gradient(center, hotpink , darkblue); /* Safari 5.1 - 6.0 */
-   >background: -o-radial-gradient(center, hotpink, darkblue); /* Opera 11.1 - 12.0 */
-   >background: -moz-radial-gradient(center, hotpink, darkblue); /* Firefox 3.6 - 15 */
-   >background: radial-gradient(at center, hotpink , darkblue); /* 标准的语法 */
+>/*线性渐变*/
+>background: -webkit-linear-gradient(left, hotpink , darkblue); /* Safari 5.1 - 6.0 */
+>background: -o-linear-gradient(left, hotpink, darkblue); /* Opera 11.1 - 12.0 */
+>background: -moz-linear-gradient(left, hotpink, darkblue); /* Firefox 3.6 - 15 */
+>background: linear-gradient(to right, hotpink , darkblue); /* 标准的语法 */
+>/*径向渐变*/
+>background: -webkit-radial-gradient(center, hotpink , darkblue); /* Safari 5.1 - 6.0 */
+>background: -o-radial-gradient(center, hotpink, darkblue); /* Opera 11.1 - 12.0 */
+>background: -moz-radial-gradient(center, hotpink, darkblue); /* Firefox 3.6 - 15 */
+>background: radial-gradient(at center, hotpink , darkblue); /* 标准的语法 */
 
-2. 第二步主要针对IE9以下的浏览器，是不支持渐变效果的。
+2️⃣第二步主要针对IE9以下的浏览器，是不支持渐变效果的。
 
-   解决办法：使用IE私有的渐变滤镜
+解决办法：使用IE私有的渐变滤镜
 
-   ```
-   filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=hotpink,endcolorstr=darkblue,gradientType=1);
-   /**
-   @ 第一个参数：startcolorstr 表示起始颜色（英文字母 or 十六进制）
-   @ 第二个参数：endcolorstr 表示终止颜色（英文字母 or 十六进制）
-   @ 第三个参数：gradientType 表示方向（1为横向渐变，0为纵向渐变）
-   */
-   ```
+```
+filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=hotpink,endcolorstr=darkblue,gradientType=1);
+/**
+@ 第一个参数：startcolorstr 表示起始颜色（英文字母 or 十六进制）
+@ 第二个参数：endcolorstr 表示终止颜色（英文字母 or 十六进制）
+@ 第三个参数：gradientType 表示方向（1为横向渐变，0为纵向渐变）
+*/
+```
 
-   ```css
-   div{
-   	/*50%透明度的#fc466b和50%透明度的#3f5efb*/
-   	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7ffc466b,
-       	endcolorstr=#7f3f5efb,gradientType=1);/*兼容IE9以下*/
-   	background: -webkit-linear-gradient(left, rgba(252,70,107,.5) , 
-           rgba(63,94,251,.5));
-       /* 标准的语法 */
-   	background: -o-linear-gradient(left, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 
-       /* 标准的语法 */
-   	background: -moz-linear-gradient(left, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 	  /* 标准的语法 */
-   	background: linear-gradient(to right, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 	/* 标准的语法 */
-   }
-   ```
+```css
+div{
+	/*50%透明度的#fc466b和50%透明度的#3f5efb*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#7ffc466b,
+    	endcolorstr=#7f3f5efb,gradientType=1);/*兼容IE9以下*/
+	background: -webkit-linear-gradient(left, rgba(252,70,107,.5) , 
+        rgba(63,94,251,.5));
+    /* 标准的语法 */
+	background: -o-linear-gradient(left, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 
+    /* 标准的语法 */
+	background: -moz-linear-gradient(left, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 	  /* 标准的语法 */
+	background: linear-gradient(to right, rgba(252,70,107,.5) , rgba(63,94,251,.5)); 	/* 标准的语法 */
+}
+```
 
 【5】特殊效果
 
@@ -1032,9 +1038,172 @@ span{
 
 <https://juejin.im/post/5aa8f624f265da239d4900f0>
 
-#### 10.border-image
+#### 10.边框图像border-image
 
+使用 border-image 时，其将会替换掉 `border-style`属性所设置的边框样式。但规范要求使用 `border-image 时`边框样式必须存在，但一些浏览器可能没有实现这一点。
 
+- `border-image-source`
+
+  + none
+  + url
+  + linear-gradient()
+  + repeating-linear-gradient(45deg, transparent, #4d9f0c 20px);
+
+- `border-image-slice`: [number | percentage]{1,4} && fill?
+
+  + `number` **不带单位的数值**。1 代表 1个图片像素。
+  + `percentage` 百分比：相对于边框图片而言的
+  + 关键字fill的作用是：将border-image-source九宫格中间那一块切片作为DOM节点的背景。
+
+  指定4个值(4条分割线：top, right, bottom, left)将 border-image-source 分割成9宫格
+
+  该属性会将图片分割为9个区域：四个角，四个边（edges）以及中心区域。四条切片线，从它们各自的侧面设置给定距离，控制区域的大小。
+
+  ![](images/border-image-slice.png)
+
+  - 区域 1-4 为角区域（corner region）。每一个都用一次来形成最终边界图像的角点。
+  - 区域 5-8 边区域（edge region）。在最终的边框图像中重复，缩放或修改它们以匹配元素的尺寸。
+  - 区域 9 为中心区域（ middle region）。它在默认情况下会被丢弃，但如果设置了关键字`fill`，则会将其用作背景图像。
+
+  使用的个数不同，代表的含义不同
+
+  >一个值：/* All sides */
+  >border-image-slice: 30%;
+  >
+  >两个值：/* vertical | horizontal */
+  >border-image-slice: 10% 30%;
+  >
+  >三个值：/* top | horizontal | bottom */
+  >border-image-slice: 30 30% 45;
+  >
+  >四个值：/* top | right | bottom | left */
+  >border-image-slice: 7 12 14 5; 
+
+- `border-image-width`: [ length | percentage | number | auto ]{1,4}
+
+  背景图片在border中的宽度
+
+  - length 带 px, em, in … 单位的尺寸值
+  - percentage ：百分比number不带单位的数字；表示 border-width 的倍数，**值为auto时 border-image-width 将会使用 border-image-slice 的值**
+
+  + number：用**倍数**表示边框宽度，border-image-width缺省值是 number 类型：1
+
+    使用的个数不同，代表的含义不同
+
+    >一个值：
+    >
+    >border-image-width: all;                                       One-value syntax
+    >
+    >border-image-width: 3;
+    >
+    >两个值：
+    >
+    >border-image-width: vertical horizontal           Two-value syntax 
+    >
+    >border-image-width: 2em 3em;
+    >
+    >三个值：
+    >
+    >border-image-width: top horizontal bottom       Three-value syntax 
+    >
+    >border-image-width: 5% 15% 10%;
+    >
+    >四个值：
+    >
+    >border-image-width: top right bottom left      Four-value syntax 
+    >
+    >border-image-width: 5% 2em 10% auto;
+
+  + width：当使用一个值的时候， 这个值表示图像的宽度被当做边框宽度应用到四条边框
+  + vertical：当使用两个值的时候（指定上下边框），这个值表示图像的宽度被当做边框宽度应用到垂直边框，控制上下两个
+
+  + horizontal：当使用两个值的时候（指定左右边框），这个值表示图像的宽度被当做边框宽度应用到水平边框，控制左右两个
+
+  + top：当使用3个和4个值的时候，这个值表示图像的宽度被当做边框宽度应用到顶部边框。控制一个
+
+  + bottom：当使用3个和4个值时候，这个值表示图像的宽度被当做边框宽度应用到底部边框。控制一个
+
+  + right：当使用4个值的时候，这个值表示图像的宽度被当做边框宽度应用到右侧边框。控制一个
+
+  + left：当使用4个值的时候，这个值表示图像的宽度被当做边框宽度应用到左侧边框。控制一个
+
+- `border-image-outset`: [ length | number ]{1,4}
+
+  定义边框图像可超出边框盒的大小
+
+  >只有一个值：/*sides */
+  >border-image-outset: 30%;
+  >
+  >有两个值：/*垂直 水平 */
+  >border-image-outset: 10% 30%;
+  >
+  >三个值：/*顶 水平 底 */
+  >border-image-outset: 30px 30% 45px;
+  >
+  >四个值：/*顶 右 底 左 */
+  >border-image-outset: 7px 12px 14px 5px;
+
+- `border-image-repeat`: [ stretch | repeat | round | space ]{1,2}
+
+  语法上最多可接收两个参数，第一个参数指定水平方向边框的平铺方式，第二个参数指定垂直方向边框的平铺方式
+
+  stretch 是默认值，space 目前chrome浏览器按 repeat 来渲染。这四个参数的效果如下：
+
+  ![](images/border-image-repeat.png)
+
+>repeat 与 round 的区别：round 除了能平铺外还能通过伸缩使背景完整显示。
+>round 与 space 的区别：虽然都使背景完整显示，但是 space 在小方块之间有一定的空隙。
+
+例1：
+
+HTML 内容
+
+```html
+<div id="bitmap">The image is stretched to fill the area.</div>
+```
+
+CSS 内容
+
+```css
+#bitmap { 
+  border: 30px solid transparent;
+  /*样式必须存在*/   
+  padding: 20px;
+  border-image: url("https://mdn.mozillademos.org/files/4127/border.png") 30;
+}
+```
+
+效果图：默认为stretch
+
+![](images/图像边框1.png)
+
+例2：
+
+HTML 内容
+
+```html
+<div id="bitmap">The image is stretched to fill the area.</div>
+```
+
+CSS 内容
+
+```css
+#bitmap { 
+  border: 30px solid transparent;
+  padding: 20px;
+  border-image: url("https://mdn.mozillademos.org/files/4127/border.png") 30;
+}
+```
+
+效果图：
+
+![](images/border-image渐变.png)
+
+参考文章：
+
+<https://aotu.io/notes/2016/11/02/border-image/index.html>
+
+<https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-image>
 
 ### 笔记内容
 

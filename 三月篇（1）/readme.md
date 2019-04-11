@@ -1,6 +1,7 @@
 Table of Contents
 =================
 
+   * [Table of Contents](#table-of-contents)
    * [本周书目——CSS揭秘](#本周书目css揭秘)
       * [第一章	引言](#第一章引言)
       * [第二章	背景与边框](#第二章背景与边框)
@@ -16,7 +17,7 @@ Table of Contents
             * [7. 回退机制](#7-回退机制)
             * [8. IE滤镜](#8-ie滤镜)
             * [9. 渐变](#9-渐变)
-            * [10.border-image](#10border-image)
+            * [10.边框图像border-image](#10边框图像border-image)
          * [笔记内容](#笔记内容)
             * [1.半透明边框](#1半透明边框)
             * [2.多重边框](#2多重边框)
@@ -1041,6 +1042,8 @@ span{
 #### 10.边框图像border-image
 
 使用 border-image 时，其将会替换掉 `border-style`属性所设置的边框样式。但规范要求使用 `border-image 时`边框样式必须存在，但一些浏览器可能没有实现这一点。
+
+**如果只设置border-image-source，图片会被缩放在四个角，相当于border-image-slice的值为100%**
 
 - `border-image-source`
 
@@ -2582,6 +2585,8 @@ main.de-emphasized {
 
 ### 知识仓库
 
+transition过渡是通过初始和结束两个状态之间的平滑过渡实现简单动画的；而animation则是通过关键帧@keyframes来实现更为复杂的动画效果。
+
 #### 1.transition 过渡
 
 + 过渡属性`transition-property`
@@ -2616,30 +2621,119 @@ CSS Animation就是为了解决这些问题而提出的。
 
 #### 2.动画animation
 
+1️⃣关键帧
+
+animation制作动画效果需要两步，首先用关键帧声明动画，再用animation调用动画
+
+　　关键帧的语法是以@keyframes开头，后面紧跟着动画名称animation-name。from等同于0%，to等同于100%。百分比跟随的花括号里面的代码，代表此时对应的样式
+
+```css
+@keyframes animation-name{
+    from | 0%{}
+    n%{}
+    to | 100%{}
+}
+```
+
+①百分比顺序不一定非要从0%到100%排列，最终浏览器会自动按照0%-100%的顺序进行解析
+
+　[注意]**0%不可以省略百分号**
+
+②如果存在负百分数或高于100%的百分数，则该关键帧将被忽略
+
+③**如果0%或100%不指定关键帧，将使用该元素默认的属性值**（特别注意：不是动画执行完逐帧回到初始状态，而是100%的状态和初始状态相同）
+
+④若存在多个@keyframes，浏览器只识别最后一个@keyframes里面的值
+
+2️⃣动画分为 **初始状态**、**等待期** 、**动画执行期** 、**完成期** 四个阶段。
+
+(1)初始状态，就是没有触发动画效果时，元素原有的状态。
+
+例如你的动画是通过点击触发的，那么你元素在还没有点击的时候，是受初始状态样式控制的，也就css中不含 animation 的其他属性控制。
+
+(2)等待期，就是 animation-delay 设置的延迟期间。
+
+按照点击触发为例子，等待期就是从你点击元素开始计算，持续 animation-delay 计时结束的这段时间。
+
+**这个期间的样式会受到 animation-fill-mode 取值的影响**。
+
+**如果为 none，表示等待期间元素没有变化，还是初始状态的样式。** 
+**如果为 backwards 或者 both，表示等待期元素样式为第一帧的样式。**
+如果为 forwards，对于等待期而言没有意义，这个是定义完成状态时元素样式，下面会细说。
+
+注意是第一帧的概念，可能是 @keyframes 中的 0%，也有可能为 100% 。取决于 animationo-direction 属性。
+
+1、当 animationo-direction 为 normal 或者 alternate 时，第一帧就是 0% 中定义样式。
+2、当 animation-direction 为 reverse 或者 alternate-reverse时，第一帧就时 100% 中定义样式。
+
+(3)动画执行期，指的是 delay 结束瞬间开始执行动画，一直持续到最后一帧。
+注意最后一帧的概念也是很绕，它一定属于 @keyframes 中的 0% 或者 100% 中之一。但具体为哪一个受到 animation-direction 和 animation-iteration-count 取值影响。
+
+总结：
+1、当 animation-direction：normal 时，最后一帧总为 100% 样式，无关 animation-iteration-count。
+2、当 animation-direction：reverse 时，最后一帧总为 0% 样式，也无关 animation-iteration-count。
+3、当 animation-direction：alternate时，animation-iteration-count 为单数时，最后一帧 为 100%， 双数为 0%；
+4、当 animation-direction：alternate-reverse时，animation-iteration-count 为单数时，最后一帧 为 0%， 双数为 100%；
+
+(4)**完成状态，执行完最后一帧时，元素处于的状态**
+
+如果你理解最后一帧，就能理解完成状态。ifinite 的动画没有完成状态。
+
+animation-fill-mode 取值 none。表示动画结束，元素回归初始状态，而且是瞬间回归，无动画效果。
+
+animation-fill-mode 取值 forwards 或者 both。表示动画执行完最后一帧，保持在最后一帧样式。再次申明，最后一帧可能为 @keyframes 中的 0% 或者 100% 之一。
+
+**最后总结**
+
+> none :表示等待期和完成期，元素样式都为初始状态样式，不受动画定义（@keyframes）的影响。
+>
+> forwards :表示等待期保持初始样式，完成期间保持最后一帧样式。
+>
+> backwards :表示等待期为第一帧样式，完成期跳转为初始样式
+>
+> both :表示等待期样式为第一帧样式，完成期保持最后一帧样式。
+
+2️⃣动画属性
+
 默认是：
 
-- 动画名称`animation-name`: `none`
+- 动画名称`animation-name`: `none`，默认为none
 
-- 动画持续时间`animation-duration`: `0s`
+  如果多个动画试图修改相同的属性，那么动画列表的后面覆盖前面
 
-- 动画函数`animation-timing-function`: `ease`
+- 动画持续时间`animation-duration`: `0s`，默认为0
 
-- 动画延迟`animation-delay`: `0s`
+- 动画函数`animation-timing-function`: `ease`，默认为ease
 
-- 动画重复次数`animation-iteration-count`: `<number>`|`infinite`
-
-- 动画方向`animation-direction`——指示动画是否反向播放: `normal` |` reverse `| `alternate` | `alternate-reverse`
-
-  + `normal`：每个循环内动画向前循环，即：每个动画循环结束，动画重置到起点重新开始，默认属性。
-  + `reverse`：反向运行动画，每周期结束动画由尾到头运行。
-  + `alternate`：动画交替反向运行，反向运行时，动画按步后退，同时，带时间功能的函数也反向
   + 
 
-- 动画完成模式`animation-fill-mode`: `none`|`forwards`|`backwards`|`both`
+- 动画延迟`animation-delay`: `0s`，默认为0
+
+- 动画重复次数`animation-iteration-count`: `<number>`|`infinite`，默认为1
+
+- 动画方向`animation-direction`——指示动画是否反向播放: `normal` |` reverse `| `alternate` | `alternate-reverse`，默认为normal
+
+  + `normal`：每个循环内动画向前循环，即：**每个动画循环结束，动画重置到起点重新开始**，默认属性。
+  + `reverse`：反向运行动画，每周期结束动画由尾到头运行。
+  + `alternate`：若动画只播放一次，则和正向播放一样。若播放两次以上，偶数次效果为反向播放
+  + alternate-reverse：若动画只播放一次，则和反向播放一样。若播放两次以上，偶数次效果为正向播放。
+
+- 动画完成模式`animation-fill-mode`: `none`|`forwards`|`backwards`|`both`，默认值为none
+
+  用来指定在**动画执行之前（等待期）**和**之后（结束期）**如何给动画的目标应用样式。
+
+  动画结束以后，会立即从结束状态跳回到起始状态。如果想让动画保持在结束状态，需要使用animation-fill-mode属性。
+
+  + none：动画执行前后不改变任何样式
+  + forwards：动画结束后，元素的样式将设置为动画的最后一帧
+  + backwards：动画结束后，元素的样式将设置为动画的第一帧
+  + both：动画结束后，元素的样式将设置为动画的最后一帧
 
 - 动画播放状态`animation-play-state`: `running`|`paused`
 
+参考文章：
 
+<https://www.cnblogs.com/xiaohuochai/p/5391663.html>
 
 
 ### 笔记内容
